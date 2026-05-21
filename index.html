@@ -1,344 +1,214 @@
-:Entrega Formal Proyecto Sistemas e IA:proyecto_sistemas_ia.html
+:Consola Interactiva - Entrega de Proyecto TGS e IA:proyecto_sistemas_ia.html
 <!DOCTYPE html>
 <html lang="es" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entrega de Proyecto: Ecosistemas de IA Generativa, Automatización y TGS</title>
+    <title>Consola de Sistemas: IA Generativa, Cloud & TGS</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+        
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #05070c;
+            background-color: #060913;
         }
-        .mono-font {
+        .font-code {
             font-family: 'JetBrains Mono', monospace;
         }
         .active-node {
             border-color: #38bdf8 !important;
-            box-shadow: 0 0 25px rgba(56, 189, 248, 0.25) !important;
-            background-color: #0f172a !important;
-            transform: scale(1.02);
+            box-shadow: 0 0 25px rgba(56, 189, 248, 0.4) !important;
+            background-color: #0d1527 !important;
+            transform: scale(1.03);
         }
         .node {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .node:hover {
+            transform: translateY(-2px) scale(1.02);
         }
         @keyframes pulse-flow {
             0% { stroke-dashoffset: 24; }
             100% { stroke-dashoffset: 0; }
         }
         .connection-line {
-            stroke-dasharray: 6;
-            animation: pulse-flow 3s linear infinite;
+            stroke-dasharray: 8;
+            animation: pulse-flow 2.5s linear infinite;
         }
     </style>
 </head>
-<body class="text-slate-100 min-h-screen flex flex-col overflow-x-hidden selection:bg-sky-500/30">
+<body class="text-slate-100 min-h-screen flex flex-col overflow-x-hidden selection:bg-cyan-500/30">
 
-    <!-- CABECERA INSTITUCIONAL (PORTADA DE ENTREGA) -->
-    <header class="bg-slate-950 border-b border-slate-900 px-6 py-6 z-10 relative">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-            <!-- Datos de la Institución y Proyecto -->
-            <div class="space-y-1.5">
+    <!-- CABECERA DE ENTREGA FORMAL (Diseño de Terminal de Alta Tecnología) -->
+    <header class="bg-slate-950/80 border-b border-slate-800/80 px-4 py-4 md:px-6 relative z-10 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+            
+            <!-- Título del Proyecto Académico -->
+            <div class="space-y-1">
                 <div class="flex flex-wrap items-center gap-2">
-                    <span class="px-2.5 py-0.5 text-[10px] font-bold bg-sky-500/10 text-sky-400 rounded-full border border-sky-500/20 uppercase tracking-widest">PROYECTO DE INVESTIGACIÓN Y DESARROLLO</span>
+                    <span class="px-2.5 py-0.5 text-[9px] font-bold bg-cyan-500/10 text-cyan-400 rounded-full border border-cyan-500/20 uppercase tracking-widest font-code">ENTREGA DE PROYECTO FINAL</span>
                     <span class="text-xs text-slate-500">•</span>
-                    <span class="text-xs text-slate-400">Teoría General de Sistemas</span>
+                    <span class="text-xs text-slate-400 font-medium">Asignatura: Ingeniería de Sistemas</span>
                 </div>
-                <h1 class="text-xl md:text-2xl font-black text-white tracking-tight flex items-center gap-2.5">
-                    <i data-lucide="shield-check" class="text-emerald-500"></i>
-                    Ecosistemas de IA Generativa, Automatización Avanzada e Infraestructura Cloud
+                <h1 class="text-lg md:text-xl font-black text-white tracking-tight flex items-center gap-2">
+                    <i data-lucide="terminal" class="text-cyan-400 animate-pulse"></i>
+                    Ecosistema Integrado de IA Generativa, Automatización y TGS
                 </h1>
-                <p class="text-xs text-slate-400">Análisis comparativo de paradigmas cibernéticos y desarrollo de modelos de forma cognitivos.</p>
             </div>
             
-            <!-- Tarjeta Formal de Metadatos del Estudiante -->
-            <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800/80 text-xs space-y-1.5 w-full md:w-80 shrink-0">
-                <div class="flex justify-between"><span class="text-slate-500">Autor:</span> <span class="font-semibold text-slate-200">Juan Ocampo</span></div>
-                <div class="flex justify-between"><span class="text-slate-500">Asignatura:</span> <span class="font-semibold text-slate-200">Ingeniería de Sistemas y TGS</span></div>
-                <div class="flex justify-between"><span class="text-slate-500">Fecha de Entrega:</span> <span class="font-semibold text-slate-200">Mayo 2026</span></div>
-                <div class="flex justify-between border-t border-slate-800/80 pt-1.5 mt-1"><span class="text-slate-500">Estado de Entrega:</span> <span class="text-emerald-400 font-bold flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span> FINALIZADO</span></div>
+            <!-- Ficha Técnica del Estudiante (Formal) -->
+            <div class="bg-slate-900/50 p-3 rounded-lg border border-slate-800/80 text-[11px] font-code space-y-1 w-full md:w-72 shrink-0">
+                <div class="flex justify-between"><span class="text-slate-500">Estudiante:</span> <span class="text-cyan-300 font-semibold">Juan Ocampo</span></div>
+                <div class="flex justify-between"><span class="text-slate-500">Materia:</span> <span class="text-slate-300">Teoría General de Sistemas (TGS)</span></div>
+                <div class="flex justify-between"><span class="text-slate-500">Estado de Entrega:</span> <span class="text-emerald-400 font-bold flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span> PRESENTACIÓN LISTA</span></div>
             </div>
         </div>
     </header>
 
-    <!-- BARRA DE NAVEGACIÓN DE SECCIONES (TABS) -->
-    <div class="bg-slate-900/40 border-b border-slate-900/80 px-6 py-2.5 sticky top-0 z-10 backdrop-blur-md flex justify-between items-center">
-        <div class="max-w-7xl mx-auto w-full flex flex-col sm:flex-row justify-between items-center gap-3">
-            <!-- Pestañas de Lectura -->
-            <div class="bg-slate-950 p-1 rounded-xl border border-slate-800/80 flex gap-1 w-full sm:w-auto">
-                <button id="tab-btn-memoria" class="flex-1 sm:flex-initial px-4 py-2 rounded-lg text-xs font-bold bg-sky-600 text-white flex items-center justify-center gap-2 transition-all">
-                    <i data-lucide="file-text" class="w-4 h-4"></i>
-                    <span>1. Memoria Técnica Escrita</span>
-                </button>
-                <button id="tab-btn-mapa" class="flex-1 sm:flex-initial px-4 py-2 rounded-lg text-xs font-bold text-slate-400 hover:text-white flex items-center justify-center gap-2 transition-all">
-                    <i data-lucide="network" class="w-4 h-4"></i>
-                    <span>2. Mapa de Arquitectura Sistémica</span>
-                </button>
-            </div>
-
-            <!-- Descargas y Métricas rápidas de Validación -->
-            <div class="flex items-center gap-4 text-xs">
-                <span class="text-slate-500">Validaciones Técnicas: <strong class="text-emerald-400">4 de 4 Aprobadas</strong></span>
-                <button onclick="window.print()" class="bg-slate-800 hover:bg-slate-700 text-slate-300 px-3.5 py-2 rounded-lg font-bold flex items-center gap-1.5 transition-colors">
-                    <i data-lucide="printer" class="w-4 h-4"></i>
-                    <span>Imprimir Reporte</span>
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- CUERPO PRINCIPAL DEL PROYECTO -->
-    <div class="flex-1 max-w-7xl mx-auto w-full flex flex-col lg:flex-row overflow-hidden relative">
+    <!-- ÁREA DE CONTROL PRINCIPAL -->
+    <div class="flex-1 flex flex-col lg:flex-row overflow-hidden">
         
-        <!-- PANELES DE CONTENIDO (IZQUIERDO) -->
-        <main class="flex-1 p-4 md:p-6 overflow-y-auto min-h-[500px]" id="content-view-viewport">
+        <!-- CANVAS VISUAL (MAPA INTERACTIVO DE SISTEMAS) -->
+        <main class="flex-1 p-4 md:p-6 overflow-y-auto relative min-h-[550px]" id="main-canvas-container">
             
-            <!-- VISTA 1: MEMORIA TÉCNICA ESCRITA (REPORTE CIENTÍFICO) -->
-            <div id="view-memoria" class="space-y-8 max-w-4xl mx-auto py-2">
+            <div id="view-map-container" class="relative w-full h-full flex flex-col justify-between py-2">
                 
-                <!-- Sección de Introducción y Justificación -->
-                <article class="bg-slate-900/40 p-6 rounded-2xl border border-slate-800/60 space-y-4">
-                    <div class="flex items-center gap-2 text-sky-400 font-bold text-xs uppercase tracking-wider">
-                        <i data-lucide="info" class="w-4 h-4"></i>
-                        <span>Sección I</span>
-                    </div>
-                    <h2 class="text-lg md:text-xl font-extrabold text-white">Introducción y Justificación del Ecosistema</h2>
-                    <p class="text-xs md:text-sm text-slate-300 leading-relaxed">
-                        El vertiginoso desarrollo de las arquitecturas de software contemporáneas ha generado una convergencia crítica entre las metodologías de automatización clásicas y los sistemas basados en inteligencia artificial cognitiva. El propósito fundamental de esta memoria técnica es analizar, modelar y contrastar de manera formal la transición operativa entre la automatización determinista y los agentes adaptativos autogestionados.
-                    </p>
-                    <p class="text-xs md:text-sm text-slate-300 leading-relaxed">
-                        Este estudio se justifica en la necesidad de estructurar sistemas robustos en la nube (<span class="text-sky-400 font-semibold">Opencloud</span>) capaces de responder a contingencias operativas imprevistas, reduciendo la entropía interna del software mediante el uso de modelos multimodales nativos como <span class="text-indigo-400 font-semibold">Google Gemini</span> y parametrizando sus restricciones de forma a través de <span class="text-purple-400 font-semibold">Gemas</span> de control.
-                    </p>
-                </article>
-
-                <!-- Sección del Análisis Comparativo Riguroso -->
-                <article class="bg-slate-900/40 p-6 rounded-2xl border border-slate-800/60 space-y-4">
-                    <div class="flex items-center gap-2 text-emerald-400 font-bold text-xs uppercase tracking-wider">
-                        <i data-lucide="git-compare" class="w-4 h-4"></i>
-                        <span>Sección II</span>
-                    </div>
-                    <h2 class="text-lg md:text-xl font-extrabold text-white">Matriz de Paradigmas: Scripts vs. Bots vs. Agentes</h2>
-                    <p class="text-xs md:text-sm text-slate-300 leading-relaxed">
-                        Para establecer un marco de referencia técnico claro, se presenta un análisis comparativo estructurado de los tres paradigmas fundamentales de ejecución automática:
-                    </p>
-                    
-                    <div class="overflow-x-auto border border-slate-800 rounded-xl">
-                        <table class="w-full text-[11px] md:text-xs text-left text-slate-300">
-                            <thead class="text-[10px] text-slate-400 uppercase bg-slate-950/80 border-b border-slate-800">
-                                <tr>
-                                    <th scope="col" class="px-4 py-3">Dimensión Técnica</th>
-                                    <th scope="col" class="px-4 py-3 text-emerald-400">Scripts de Código</th>
-                                    <th scope="col" class="px-4 py-3 text-sky-400">Bots de Interfaz</th>
-                                    <th scope="col" class="px-4 py-3 text-pink-400">Agentes Cognitivos</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-slate-800">
-                                <tr>
-                                    <td class="px-4 py-3 font-semibold text-white">Toma de Decisiones</td>
-                                    <td class="px-4 py-3">Determinista estricta (Árbol lógico <span class="mono-font">if-else</span>)</td>
-                                    <td class="px-4 py-3">Árboles de decisión rígidos pre-programados</td>
-                                    <td class="px-4 py-3 font-semibold text-pink-300">Inferencia probabilística autónoma basada en LLM</td>
-                                </tr>
-                                <tr>
-                                    <td class="px-4 py-3 font-semibold text-white">Tolerancia a Anomalías</td>
-                                    <td class="px-4 py-3">Nula. Lanza excepción y detiene el flujo operativo</td>
-                                    <td class="px-4 py-3">Baja. Desalineación de interfaz bloquea el proceso</td>
-                                    <td class="px-4 py-3 font-semibold text-pink-300">Alta. Planifica rutas de contingencia y se autocorrige</td>
-                                </tr>
-                                <tr>
-                                    <td class="px-4 py-3 font-semibold text-white">Multimodalidad</td>
-                                    <td class="px-4 py-3">Inexistente de forma nativa</td>
-                                    <td class="px-4 py-3">Limitada a la detección óptica básica (OCR rígido)</td>
-                                    <td class="px-4 py-3 font-semibold text-pink-300">Nativa (Texto, Imagen, Video, Audio simultáneos)</td>
-                                </tr>
-                                <tr>
-                                    <td class="px-4 py-3 font-semibold text-white">Infraestructura Típica</td>
-                                    <td class="px-4 py-3">Máquina virtual local / Servidores Cron en Cloud</td>
-                                    <td class="px-4 py-3">Clientes virtuales (RPA) o Servidores Web</td>
-                                    <td class="px-4 py-3 font-semibold text-pink-300">Entornos de nube interoperables (Opencloud)</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </article>
-
-                <!-- Modelado Formal bajo la TGS -->
-                <article class="bg-slate-900/40 p-6 rounded-2xl border border-slate-800/60 space-y-4">
-                    <div class="flex items-center gap-2 text-amber-400 font-bold text-xs uppercase tracking-wider">
-                        <i data-lucide="layers" class="w-4 h-4"></i>
-                        <span>Sección III</span>
-                    </div>
-                    <h2 class="text-lg md:text-xl font-extrabold text-white">Modelado Cibernético según la Teoría General de Sistemas (TGS)</h2>
-                    <p class="text-xs md:text-sm text-slate-300 leading-relaxed">
-                        De acuerdo con la TGS postulada por Ludwig von Bertalanffy, el ecosistema de IA y automatización se comporta como un **Sistema Abierto** que mantiene un flujo continuo de intercambio de información con su ambiente en la nube. La arquitectura se define a través de las siguientes dimensiones:
-                    </p>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-                        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800/80 space-y-1.5">
-                            <span class="font-bold text-amber-400 uppercase tracking-wider text-[10px]">1. El Flujo de Información Abierto</span>
-                            <p class="text-slate-400">El sistema recibe continuamente <strong>Entradas (Input)</strong> representadas por prompts del usuario e información de la nube, las procesa a través de la caja negra de razonamiento de Gemini y produce <strong>Salidas (Output)</strong> en forma de scripts estructurados.</p>
-                        </div>
-                        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800/80 space-y-1.5">
-                            <span class="font-bold text-amber-400 uppercase tracking-wider text-[10px]">2. Homeostasis vs. Entropía</span>
-                            <p class="text-slate-400">La <strong>Entropía</strong> desgasta el sistema cuando ocurren excepciones en los servidores o cambios de formato de red. El Agente de IA ejerce la <strong>Homeostasis</strong> (autorregulación) corrigiendo el código dinámicamente gracias a un bucle de retroalimentación constante.</p>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Conclusiones Académicas -->
-                <article class="bg-slate-900/40 p-6 rounded-2xl border border-slate-800/60 space-y-3">
-                    <div class="flex items-center gap-2 text-indigo-400 font-bold text-xs uppercase tracking-wider">
-                        <i data-lucide="check-square" class="w-4 h-4"></i>
-                        <span>Sección IV</span>
-                    </div>
-                    <h2 class="text-lg md:text-xl font-extrabold text-white font-sans">Conclusiones del Proyecto</h2>
-                    <ul class="space-y-2 text-xs md:text-sm text-slate-300 list-disc pl-5">
-                        <li>La transición del script rígido al agente con IA generativa no anula el uso de código tradicional; los agentes utilizan los scripts como herramientas de acción (actuadores) dentro del sistema abierto.</li>
-                        <li>La Teoría General de Sistemas provee el marco científico idóneo para entender la homeostasis y robustez necesarias en despliegues sobre infraestructuras complejas como Opencloud.</li>
-                        <li>Los modelos de forma personalizados (Gemas) resultan indispensables para modular el comportamiento ético, operacional y técnico de las redes de IA de gran tamaño.</li>
-                    </ul>
-                </article>
-
-            </div>
-
-            <!-- VISTA 2: MAPA DE ARQUITECTURA SISTÉMICA (MAPA MENTAL INTERACTIVO) -->
-            <div id="view-map" class="hidden relative w-full h-full min-h-[560px] flex flex-col justify-between py-2">
-                
-                <!-- Lienzo de Líneas de Conexión Dinámicas (Filtros específicos para la entrega formal) -->
-                <svg id="connection-svg" class="absolute inset-0 pointer-events-none w-full h-full z-0 min-h-[560px]">
+                <!-- Lienzo de Líneas de Conexión Dinámicas de Alta Tecnología -->
+                <svg id="connection-svg" class="absolute inset-0 pointer-events-none w-full h-full z-0 min-h-[580px]">
                     <defs>
-                        <linearGradient id="formal-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.6"/>
-                            <stop offset="50%" stop-color="#8b5cf6" stop-opacity="0.6"/>
-                            <stop offset="100%" stop-color="#ec4899" stop-opacity="0.6"/>
+                        <linearGradient id="line-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.5"/>
+                            <stop offset="50%" stop-color="#8b5cf6" stop-opacity="0.5"/>
+                            <stop offset="100%" stop-color="#ec4899" stop-opacity="0.5"/>
                         </linearGradient>
-                        <filter id="formal-glow">
-                            <feGaussianBlur stdDeviation="3" result="blur"/>
+                        <filter id="glow">
+                            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
                             <feMerge>
-                                <feMergeNode in="blur"/>
+                                <feMergeNode in="coloredBlur"/>
                                 <feMergeNode in="SourceGraphic"/>
                             </feMerge>
                         </filter>
                     </defs>
                 </svg>
 
-                <!-- GRID DE DISPOSICIÓN DE NODOS -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center justify-center relative z-10 w-full max-w-5xl mx-auto my-auto py-2">
+                <!-- DISTRIBUCIÓN DE NODOS -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center justify-center relative z-10 w-full max-w-5xl mx-auto my-auto py-4">
                     
-                    <!-- COLUMNA COGNITIVA (IA Y MODELADO DE FORMA) -->
+                    <!-- COLUMNA IA & MODELADO COGNITIVO -->
                     <div class="space-y-4 flex flex-col justify-center">
-                        <div class="text-center md:text-right border-b border-slate-800/80 pb-2">
-                            <span class="text-[10px] font-bold text-sky-400 uppercase tracking-widest block font-mono">1. SUBSISTEMA COGNITIVO</span>
+                        <div class="text-center md:text-right border-b border-slate-800/60 pb-1.5">
+                            <span class="text-[9px] font-bold text-cyan-400 uppercase tracking-widest font-code block">Rama 1: Modelado Cognitivo</span>
                         </div>
                         
-                        <!-- Nodo IA Generativa -->
-                        <div id="node-iagen" onclick="selectNode('node-iagen')" class="node cursor-pointer bg-slate-900/85 border border-slate-800 p-4 rounded-xl hover:border-sky-500 transition-all shadow-lg active-node">
+                        <!-- IA Generativa -->
+                        <div id="node-iagen" onclick="selectNode('node-iagen')" class="node cursor-pointer bg-slate-900/80 border border-slate-800/80 p-4 rounded-xl hover:border-cyan-500 transition-all shadow-lg active-node">
                             <div class="flex items-center gap-3">
-                                <div class="p-2 bg-sky-500/10 text-sky-400 rounded-lg"><i data-lucide="sparkles" class="w-5 h-5"></i></div>
+                                <div class="p-2.5 bg-cyan-500/10 text-cyan-400 rounded-lg"><i data-lucide="sparkles" class="w-5 h-5"></i></div>
                                 <div>
                                     <h3 class="font-extrabold text-white text-xs md:text-sm">IA Generativa</h3>
-                                    <p class="text-[11px] text-slate-400 mt-0.5">Creación de conocimiento adaptativo</p>
+                                    <p class="text-[11px] text-slate-400">Creación de conocimiento adaptativo</p>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Nodo Gemini -->
-                        <div id="node-gemini" onclick="selectNode('node-gemini')" class="node cursor-pointer bg-slate-900/85 border border-slate-800 p-4 rounded-xl hover:border-indigo-500 transition-all shadow-lg">
+                        <!-- Google Gemini -->
+                        <div id="node-gemini" onclick="selectNode('node-gemini')" class="node cursor-pointer bg-slate-900/80 border border-slate-800/80 p-4 rounded-xl hover:border-indigo-500 transition-all shadow-lg">
                             <div class="flex items-center gap-3">
-                                <div class="p-2 bg-indigo-500/10 text-indigo-400 rounded-lg"><i data-lucide="orbit" class="w-5 h-5"></i></div>
+                                <div class="p-2.5 bg-indigo-500/10 text-indigo-400 rounded-lg"><i data-lucide="orbit" class="w-5 h-5"></i></div>
                                 <div>
                                     <h3 class="font-extrabold text-white text-xs md:text-sm">Google Gemini</h3>
-                                    <p class="text-[11px] text-slate-400 mt-0.5">Procesamiento multimodal nativo</p>
+                                    <p class="text-[11px] text-slate-400">Procesamiento multimodal nativo</p>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Nodo Gemas de Gemini -->
-                        <div id="node-gemas" onclick="selectNode('node-gemas')" class="node cursor-pointer bg-slate-900/85 border border-slate-800 p-4 rounded-xl hover:border-purple-500 transition-all shadow-lg">
+                        <!-- Gemas -->
+                        <div id="node-gemas" onclick="selectNode('node-gemas')" class="node cursor-pointer bg-slate-900/80 border border-slate-800/80 p-4 rounded-xl hover:border-purple-500 transition-all shadow-lg">
                             <div class="flex items-center gap-3">
-                                <div class="p-2 bg-purple-500/10 text-purple-400 rounded-lg"><i data-lucide="gem" class="w-5 h-5"></i></div>
+                                <div class="p-2.5 bg-purple-500/10 text-purple-400 rounded-lg"><i data-lucide="gem" class="w-5 h-5"></i></div>
                                 <div>
                                     <h3 class="font-extrabold text-white text-xs md:text-sm">Gemas en Gemini</h3>
-                                    <p class="text-[11px] text-slate-400 mt-0.5">Personalización del Modelo de Forma</p>
+                                    <p class="text-[11px] text-slate-400">Personalización del Modelo de Forma</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- COLUMNA CENTRAL (SISTEMA ABIERTO / RAÍZ) -->
+                    <!-- COLUMNA CENTRAL (SISTEMAS & TGS) -->
                     <div class="flex flex-col gap-6 justify-center items-center">
                         
-                        <!-- NODO CENTRAL INTEGRADOR -->
-                        <div id="node-root" onclick="selectNode('node-root')" class="node cursor-pointer bg-gradient-to-r from-sky-600 to-purple-600 border border-white/20 p-5 rounded-xl text-center shadow-xl w-full max-w-xs relative overflow-hidden">
-                            <div class="inline-flex p-2 bg-black/40 text-white rounded-full mb-1.5">
-                                <i data-lucide="activity" class="w-5.5 h-5.5 text-sky-400"></i>
+                        <!-- NODO CENTRAL -->
+                        <div id="node-root" onclick="selectNode('node-root')" class="node cursor-pointer bg-gradient-to-r from-cyan-500 via-indigo-500 to-purple-600 border border-white/20 p-5 rounded-2xl text-center shadow-xl w-full max-w-xs relative overflow-hidden">
+                            <div class="absolute -right-6 -bottom-6 text-white/5"><i data-lucide="brain-circuit" class="w-24 h-24"></i></div>
+                            <div class="inline-flex p-2.5 bg-black/40 text-white rounded-full mb-2">
+                                <i data-lucide="activity" class="w-6 h-6 animate-pulse text-cyan-300"></i>
                             </div>
-                            <h2 class="text-xs font-black text-white uppercase tracking-wider">Ecosistema Integrador</h2>
-                            <p class="text-[10px] text-sky-100/90">Estructuración Cibernética de Sistemas</p>
+                            <h2 class="text-xs font-black text-white uppercase tracking-wider font-code">SISTEMA CENTRAL TGS</h2>
+                            <p class="text-[10px] text-cyan-100/90">Estructuración Cibernética</p>
                         </div>
 
-                        <!-- Nodo Teoría General de Sistemas -->
-                        <div id="node-tgs" onclick="selectNode('node-tgs')" class="node cursor-pointer bg-slate-900/85 border border-slate-800 p-4 rounded-xl hover:border-amber-500 transition-all shadow-lg w-full max-w-xs">
+                        <!-- Teoría General de Sistemas -->
+                        <div id="node-tgs" onclick="selectNode('node-tgs')" class="node cursor-pointer bg-slate-900/80 border border-slate-800/80 p-4 rounded-xl hover:border-amber-500 transition-all shadow-lg w-full max-w-xs">
                             <div class="flex items-center gap-3">
-                                <div class="p-2 bg-amber-500/10 text-amber-400 rounded-lg"><i data-lucide="network" class="w-5 h-5"></i></div>
+                                <div class="p-2.5 bg-amber-500/10 text-amber-400 rounded-lg"><i data-lucide="network" class="w-5 h-5"></i></div>
                                 <div>
                                     <h3 class="font-extrabold text-white text-xs md:text-sm">Teoría de Sistemas (TGS)</h3>
-                                    <p class="text-[11px] text-slate-400 mt-0.5">Sistemas Abiertos en Tecnología</p>
+                                    <p class="text-[11px] text-slate-400">Sistemas Abiertos en Tecnología</p>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Nodo Laboratorio TGS -->
-                        <div id="node-tgs-sim" onclick="selectNode('node-tgs-sim')" class="node cursor-pointer bg-slate-900/85 border border-slate-800 p-4 rounded-xl hover:border-amber-400 transition-all shadow-lg w-full max-w-xs">
+                        <!-- Simulador TGS -->
+                        <div id="node-tgs-sim" onclick="selectNode('node-tgs-sim')" class="node cursor-pointer bg-slate-900/80 border border-slate-800/80 p-4 rounded-xl hover:border-amber-400 transition-all shadow-lg w-full max-w-xs">
                             <div class="flex items-center gap-3">
-                                <div class="p-2 bg-amber-500/10 text-amber-400 rounded-lg"><i data-lucide="sliders" class="w-5 h-5"></i></div>
+                                <div class="p-2.5 bg-amber-500/10 text-amber-400 rounded-lg"><i data-lucide="sliders" class="w-5 h-5"></i></div>
                                 <div>
                                     <h3 class="font-extrabold text-white text-xs md:text-sm">Laboratorio de TGS</h3>
-                                    <p class="text-[11px] text-slate-400 mt-0.5">Ajuste de flujos e Inputs de Sistemas</p>
+                                    <p class="text-[11px] text-slate-400">Homeostasis y Entropía en vivo</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- COLUMNA OPERATIVA (AUTOMATIZACIÓN & NUBE INTEROPERABLE) -->
+                    <!-- COLUMNA OPERATIVA (AUTOMATIZACIÓN & CLOUD) -->
                     <div class="space-y-4 flex flex-col justify-center">
-                        <div class="text-center md:text-left border-b border-slate-800/80 pb-2">
-                            <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-widest block font-mono">2. SUBSISTEMA OPERATIVO</span>
+                        <div class="text-center md:text-left border-b border-slate-800/60 pb-1.5">
+                            <span class="text-[9px] font-bold text-emerald-400 uppercase tracking-widest block font-code">Rama 2: Operatividad y Nube</span>
                         </div>
 
-                        <!-- Nodo Script, Bot y Agente -->
-                        <div id="node-aut" onclick="selectNode('node-aut')" class="node cursor-pointer bg-slate-900/85 border border-slate-800 p-4 rounded-xl hover:border-emerald-500 transition-all shadow-lg">
+                        <!-- Script, Bot y Agente -->
+                        <div id="node-aut" onclick="selectNode('node-aut')" class="node cursor-pointer bg-slate-900/80 border border-slate-800/80 p-4 rounded-xl hover:border-emerald-500 transition-all shadow-lg">
                             <div class="flex items-center gap-3">
-                                <div class="p-2 bg-emerald-500/10 text-emerald-400 rounded-lg"><i data-lucide="terminal" class="w-5 h-5"></i></div>
+                                <div class="p-2.5 bg-emerald-500/10 text-emerald-400 rounded-lg"><i data-lucide="terminal" class="w-5 h-5"></i></div>
                                 <div>
                                     <h3 class="font-extrabold text-white text-xs md:text-sm">Script, Bot y Agente</h3>
-                                    <p class="text-[11px] text-slate-400 mt-0.5">Laboratorio de código y metas</p>
+                                    <p class="text-[11px] text-slate-400">Laboratorio de código y metas</p>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Nodo Agentes en Codex -->
-                        <div id="node-codex" onclick="selectNode('node-codex')" class="node cursor-pointer bg-slate-900/85 border border-slate-800 p-4 rounded-xl hover:border-pink-500 transition-all shadow-lg">
+                        <!-- Agentes Codex -->
+                        <div id="node-codex" onclick="selectNode('node-codex')" class="node cursor-pointer bg-slate-900/80 border border-slate-800/80 p-4 rounded-xl hover:border-pink-500 transition-all shadow-lg">
                             <div class="flex items-center gap-3">
-                                <div class="p-2 bg-pink-500/10 text-pink-400 rounded-lg"><i data-lucide="bot" class="w-5 h-5"></i></div>
+                                <div class="p-2.5 bg-pink-500/10 text-pink-400 rounded-lg"><i data-lucide="bot" class="w-5 h-5"></i></div>
                                 <div>
                                     <h3 class="font-extrabold text-white text-xs md:text-sm">Agentes de Código</h3>
-                                    <p class="text-[11px] text-slate-400 mt-0.5">Automatización autorreparable</p>
+                                    <p class="text-[11px] text-slate-400">Automatización autorreparable</p>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Nodo Opencloud -->
-                        <div id="node-opencloud" onclick="selectNode('node-opencloud')" class="node cursor-pointer bg-slate-900/85 border border-slate-800 p-4 rounded-xl hover:border-blue-500 transition-all shadow-lg">
+                        <!-- Opencloud -->
+                        <div id="node-opencloud" onclick="selectNode('node-opencloud')" class="node cursor-pointer bg-slate-900/80 border border-slate-800/80 p-4 rounded-xl hover:border-blue-500 transition-all shadow-lg">
                             <div class="flex items-center gap-3">
-                                <div class="p-2 bg-blue-500/10 text-blue-400 rounded-lg"><i data-lucide="cloud" class="w-5 h-5"></i></div>
+                                <div class="p-2.5 bg-blue-500/10 text-blue-400 rounded-lg"><i data-lucide="cloud" class="w-5 h-5"></i></div>
                                 <div>
-                                    <h3 class="font-extrabold text-white text-xs md:text-sm">Modelo Cloud y Opencloud</h3>
-                                    <p class="text-[11px] text-slate-400 mt-0.5">Infraestructura abierta y escalable</p>
+                                    <h3 class="font-extrabold text-white text-xs md:text-sm">Modelo Cloud & Opencloud</h3>
+                                    <p class="text-[11px] text-slate-400">Estructura abierta e interoperable</p>
                                 </div>
                             </div>
                         </div>
@@ -346,102 +216,105 @@
 
                 </div>
 
-                <!-- Info rápida inferior en el mapa -->
-                <div class="text-center text-xs text-slate-500 mt-4 relative z-10 font-mono">
-                    <p class="flex items-center justify-center gap-1.5"><i data-lucide="info" class="w-4 h-4"></i> Los nodos del mapa mental corresponden a los capítulos detallados de la memoria escrita técnica.</p>
+                <!-- Barra de Eventos del Sistema (Fija abajo para dar sensación de Terminal viva) -->
+                <div class="max-w-2xl mx-auto w-full bg-slate-950/90 border border-slate-800/80 p-3 rounded-xl relative z-10 flex items-center justify-between gap-3 text-xs">
+                    <span class="flex h-2 w-2 relative">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+                    </span>
+                    <p id="system-event-text" class="text-slate-300 font-code flex-1 text-[11px]">CONSOLA: Laboratorio inicializado. Haz clic en los nodos para desplegar las simulaciones científicas.</p>
+                    <span class="text-[9px] text-slate-500 font-bold uppercase font-code">Live-Status</span>
                 </div>
             </div>
 
         </main>
 
-        <!-- PANEL LATERAL DERECHO: CONSOLA DE VALIDACIÓN INTERACTIVA (EL BANCO DE PRUEBAS DEL PROYECTO) -->
-        <aside id="details-panel" class="w-full lg:w-[460px] bg-slate-900/90 border-t lg:border-t-0 lg:border-l border-slate-800/80 flex flex-col shadow-2xl z-20">
+        <!-- PANEL LATERAL DERECHO: INTERFAZ DE SIMULADORES Y TEORÍA -->
+        <aside id="details-panel" class="w-full lg:w-[460px] bg-slate-900/95 border-t lg:border-t-0 lg:border-l border-slate-800/80 flex flex-col shadow-2xl z-20">
             
-            <!-- Encabezado del Panel -->
+            <!-- Cabecera de la Consola -->
             <div class="p-4 border-b border-slate-800 bg-slate-950/60 flex justify-between items-center">
                 <div class="flex items-center gap-2">
-                    <span id="panel-category" class="px-2.5 py-0.5 text-[9px] font-bold bg-sky-500/10 text-sky-400 rounded-full uppercase tracking-wider font-mono">BANCO DE PRUEBAS</span>
-                    <h3 class="font-black text-xs text-white uppercase tracking-wider">Módulos de Validación</h3>
+                    <span id="panel-category" class="px-2.5 py-0.5 text-[9px] font-bold bg-cyan-500/10 text-cyan-400 rounded-full uppercase tracking-wider font-code">LABS</span>
+                    <h3 class="font-black text-xs text-white uppercase font-code">Terminal de Control</h3>
                 </div>
-                <div class="flex items-center gap-2">
-                    <button onclick="readPanelText()" class="text-slate-400 hover:text-white p-1 rounded hover:bg-slate-800 transition-all" title="Escuchar explicación del módulo">
-                        <i data-lucide="volume-2" class="w-4.5 h-4.5"></i>
-                    </button>
-                </div>
+                <button onclick="readPanelText()" class="text-slate-400 hover:text-white p-1 rounded hover:bg-slate-800 transition-all" title="Escuchar reporte">
+                    <i data-lucide="volume-2" class="w-4.5 h-4.5"></i>
+                </button>
             </div>
 
-            <!-- Espacio para Carga de Simulaciones / Contenido de validación -->
+            <!-- Contenido del Panel Dinámico -->
             <div id="panel-content" class="flex-1 overflow-y-auto p-5 space-y-5">
-                <!-- Se inyecta dinámicamente con JS -->
+                <!-- Por defecto se muestra la introducción técnica estructurada -->
             </div>
 
-            <!-- Log de Estado del Banco de Pruebas -->
-            <div class="p-3.5 bg-slate-950 border-t border-slate-800/80 text-[10px] text-slate-500 flex justify-between items-center font-mono">
-                <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> SISTEMA PRINCIPAL ACTIVO</span>
-                <span class="text-slate-400">Ver. 2026.1</span>
+            <!-- Footer de la Consola -->
+            <div class="p-3 bg-slate-950 border-t border-slate-800/80 text-[10px] text-slate-500 flex justify-between items-center font-code">
+                <span>ESTADO: SEGURO</span>
+                <span class="text-cyan-400 flex items-center gap-1 font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span> CONECTADO</span>
             </div>
         </aside>
 
     </div>
 
-    <!-- SCRIPT DE LÓGICA ACADÉMICA INTERACTIVA -->
+    <!-- CÓDIGO DE INTERACTIVIDAD Y SIMULACIÓN COMPLETO -->
     <script>
-        // CAPÍTULOS TÉCNICOS DETALLADOS PARA EL PANEL DE ESTUDIO Y VALIDACIÓN
+        // CAPÍTULOS TÉCNICOS Y SIMULADORES DE LA CONSOLA
         const labsData = {
             'node-root': {
-                title: "Ecosistema Integrador de Software",
+                title: "Ecosistema Integrado de Sistemas",
                 category: "PROYECTO INTEGRADO",
-                badgeStyle: "bg-sky-500/10 text-sky-400",
-                description: "Este espacio valida de forma experimental la integración sistémica entre los modelos semánticos de IA, los procesos en servidores tradicionales y el alojamiento elástico en la nube.",
+                badgeStyle: "bg-cyan-500/10 text-cyan-400",
+                description: "Este entorno demuestra empíricamente cómo interactúan los sistemas de IA generativa, la programación secuencial tradicional y las nubes de datos abiertas según la Teoría General de Sistemas.",
                 bullets: [
-                    "<strong>Navegabilidad:</strong> Haz clic en cualquiera de las cajas del mapa mental (en la pestaña de arquitectura) para desplegar sus pruebas específicas.",
-                    "<strong>Estructura Abierta:</strong> Demuestra cómo los flujos e inputs interactúan bajo una visión holística de sistemas."
+                    "<strong>Navegabilidad:</strong> Haz clic en cualquiera de las cajas del mapa mental interactivo a la izquierda para cargar simuladores específicos en este panel.",
+                    "<strong>Integridad Teórica:</strong> Cada módulo contiene definiciones rigurosas listas para la calificación del profesor."
                 ],
                 widget: `
-                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800/80 space-y-3">
-                        <span class="text-[10px] text-sky-400 font-bold uppercase tracking-widest block text-center">Validación Rápida de Entrega</span>
-                        <p class="text-xs text-slate-400 leading-relaxed">
-                            Como autor del proyecto, puedes guiar la revisión técnica del docente haciendo clic en la pestaña **2. Mapa de Arquitectura Sistémica** y ejecutando las pruebas lógicas de los simuladores.
+                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800/85 text-center space-y-3">
+                        <span class="text-[10px] text-cyan-400 font-bold uppercase tracking-widest block font-code">Guía Rápida de Evaluación</span>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Diseñamos este panel para que el docente pueda probar la resistencia de las automatizaciones frente a errores inesperados del entorno.
                         </p>
                     </div>
                 `
             },
             'node-iagen': {
-                title: "Módulo I: Inferencia en IA Generativa",
+                title: "Inferencia en IA Generativa",
                 category: "PROCESAMIENTO COGNITIVO",
-                badgeStyle: "bg-sky-500/10 text-sky-400",
-                description: "Demostración de cómo un algoritmo basado en redes de IA Generativa puede interpretar instrucciones semánticas imprecisas para estructurar una acción técnica lógica de forma autónoma.",
+                badgeStyle: "bg-cyan-500/10 text-cyan-400",
+                description: "La IA Generativa cambia la lógica de programación rígida por inferencia adaptativa basada en redes semánticas avanzadas.",
                 bullets: [
-                    "<strong>Sustitución de Expresiones Regulares (Regex):</strong> La IA interpreta semántica, no concordancia exacta de caracteres.",
-                    "<strong>Modelo Adaptativo:</strong> Genera código para salvar el estado del sistema en caliente."
+                    "<strong>Sustitución de Expresiones Rígidas:</strong> Entiende lenguaje libre en lugar de buscar concordancias exactas de texto.",
+                    "<strong>Adaptabilidad:</strong> Resuelve el problema aunque el entorno haya cambiado."
                 ],
                 widget: `
-                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-3">
-                        <span class="text-[10px] font-bold text-sky-400 uppercase tracking-wider block font-mono">Consola de Inferencia Semántica</span>
+                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800/85 space-y-3">
+                        <span class="text-[10px] font-bold text-cyan-400 uppercase tracking-wider block font-code">Simulador de Inferencia Cognitiva</span>
                         <div class="space-y-2">
-                            <label class="text-[10px] text-slate-400 font-mono">Escribe un Prompt Técnico de Entrada:</label>
-                            <input type="text" id="ia-prompt-input" value="Escribe un script para respaldar los datos si la base de datos se satura" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-xs focus:outline-none focus:border-sky-500 font-mono text-slate-300">
+                            <label class="text-[10px] text-slate-400 font-code">Ingresa un Prompt de Entrada para la IA:</label>
+                            <input type="text" id="ia-prompt-input" value="Extrae la ganancia neta del balance si supera los $5000 USD" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-xs focus:outline-none focus:border-cyan-500 font-code text-slate-300">
                         </div>
-                        <button onclick="runInferenceSimulation()" class="w-full py-2 bg-sky-600 hover:bg-sky-500 rounded-lg text-xs font-bold text-white transition-colors flex items-center justify-center gap-1.5">
-                            <i data-lucide="cpu" class="w-4 h-4"></i> Generar Respuesta Lógica (Inferencia)
+                        <button onclick="runInferenceSimulation()" class="w-full py-2 bg-cyan-600 hover:bg-cyan-500 rounded-lg text-xs font-bold text-white transition-all flex items-center justify-center gap-1.5 shadow-lg shadow-cyan-900/20">
+                            <i data-lucide="cpu" class="w-4 h-4"></i> Generar Respuesta Semántica
                         </button>
-                        <div id="ia-inference-output" class="bg-slate-900 p-2.5 rounded-lg border border-slate-800 text-[10px] font-mono text-slate-400 min-h-[60px] max-h-[100px] overflow-y-auto">
-                            Esperando prompt técnico para iniciar inferencia semántica...
+                        <div id="ia-inference-output" class="bg-slate-900 p-2.5 rounded-lg border border-slate-800/80 text-[10px] font-code text-slate-400 min-h-[60px] max-h-[100px] overflow-y-auto">
+                            Esperando prompt técnico para procesar inferencia...
                         </div>
                     </div>
                 `
             },
             'node-gemini': {
-                title: "Módulo II: Pruebas Multimodales Nativas",
+                title: "Multimodalidad de Google Gemini",
                 category: "PROCESAMIENTO DIRECTO",
                 badgeStyle: "bg-indigo-500/10 text-indigo-400",
-                description: "Evaluación de la capacidad de Google Gemini para procesar entradas de información no estructurada en formatos multimedia de forma directa, eliminando traductores de software adicionales.",
+                description: "Google Gemini fue diseñado desde su origen más básico para ser multimodal nativo, procesando simultáneamente diferentes formatos multimedia.",
                 bullets: [
-                    "<strong>Multimodalidad de Un Solo Paso:</strong> El modelo correlaciona el archivo de video/audio con comandos lógicos de forma unificada."
+                    "<strong>Procesamiento Directo:</strong> No descompone el video en frames ni el audio en texto previo; correlaciona los flujos en un solo paso latente."
                 ],
                 widget: `
-                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-3">
-                        <span class="text-[10px] text-indigo-400 font-bold uppercase tracking-wider block font-mono">Simulador de Ingesta Multimedia Directa</span>
+                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800/85 space-y-3">
+                        <span class="text-[10px] text-indigo-400 font-bold uppercase tracking-wider block font-code">Simulador de Ingesta Multimedia Directa</span>
                         <div class="grid grid-cols-3 gap-2">
                             <button onclick="simulateMultimodalInput('image')" class="p-2 bg-slate-900 border border-slate-700 hover:border-indigo-500 rounded-lg text-[10px] flex flex-col items-center gap-1 text-slate-400 hover:text-white transition-all">
                                 <i data-lucide="image" class="w-4 h-4"></i> Imagen
@@ -453,85 +326,85 @@
                                 <i data-lucide="mic" class="w-4 h-4"></i> Audio
                             </button>
                         </div>
-                        <div id="multimodal-status" class="bg-slate-900 p-2.5 rounded-lg border border-slate-800 text-[10px] font-mono text-slate-400 min-h-[70px]">
-                            Seleccione un formato de entrada multimedia para simular la decodificación en caliente...
+                        <div id="multimodal-status" class="bg-slate-900 p-2.5 rounded-lg border border-slate-800 text-[10px] font-code text-slate-400 min-h-[70px]">
+                            Haz clic en un formato multimedia para procesar de forma nativa con Gemini...
                         </div>
                     </div>
                 `
             },
             'node-gemas': {
-                title: "Módulo III: Parametrización del Modelo de Forma",
-                category: "RESTRICCIONES OPERATIVAS",
+                title: "Gemas y Modelado de Forma",
+                category: "PARAMETRIZACIÓN COGNITIVA",
                 badgeStyle: "bg-purple-500/10 text-purple-400",
-                description: "Las **Gemas** de Gemini actúan como interfaces de configuración formal en lenguaje natural para estructurar el modelo de comportamiento y restricciones lógicas de la IA.",
+                description: "Las **Gemas** permiten moldear el comportamiento y restricciones de Gemini dándole reglas e instrucciones del sistema en lenguaje natural.",
                 bullets: [
-                    "<strong>Definición del Sistema:</strong> Ajusta el alcance técnico, límites éticos y jerarquía de comandos del agente de IA."
+                    "<strong>Ajuste de Comportamiento:</strong> Establece el tono técnico, alcance funcional y límites éticos de las respuestas de la IA."
                 ],
                 widget: `
-                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-3">
-                        <span class="text-[10px] text-purple-400 font-bold uppercase tracking-wider block font-mono">Consola de Configuración de Forma (Gemas)</span>
+                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800/85 space-y-3">
+                        <span class="text-[10px] text-purple-400 font-bold uppercase tracking-wider block font-code">Configurador del Modelo de Forma</span>
                         <div class="space-y-2 text-xs">
                             <div>
-                                <label class="text-[10px] text-slate-400">Seleccionar Rol de la Gema:</label>
-                                <select id="gema-role-select" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-xs text-slate-300 mt-1 focus:outline-none focus:border-purple-500">
-                                    <option value="auditor">Auditor de Ciberseguridad Cloud</option>
-                                    <option value="tgs">Especialista en Diagnóstico de Teoría de Sistemas</option>
-                                    <option value="scrapper">Orquestador de Automatizaciones</option>
+                                <label class="text-[10px] text-slate-400">Rol Operativo de la Gema:</label>
+                                <select id="gema-role-select" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-xs text-slate-300 mt-1 focus:outline-none focus:border-purple-500 font-code">
+                                    <option value="auditor">Auditor de Vulnerabilidades Cloud</option>
+                                    <option value="tgs">Especialista Académico en TGS</option>
+                                    <option value="scrapper">Traductor de Logs del Servidor</option>
                                 </select>
                             </div>
                             <div>
-                                <label class="text-[10px] text-slate-400">Alinear Restricción de Tono Técnico:</label>
-                                <select id="gema-tone-select" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-xs text-slate-300 mt-1 focus:outline-none focus:border-purple-500">
-                                    <option value="formal">Científico y Técnico Formal</option>
-                                    <option value="conciso">Sintético, Estilo Reporte de Error</option>
+                                <label class="text-[10px] text-slate-400">Tono de la Consola:</label>
+                                <select id="gema-tone-select" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-xs text-slate-300 mt-1 focus:outline-none focus:border-purple-500 font-code">
+                                    <option value="formal">Científico Formal</option>
+                                    <option value="conciso">Directo (Estilo Terminal de Error)</option>
                                 </select>
                             </div>
                         </div>
                         <button onclick="instantiateGema()" class="w-full py-2 bg-purple-600 hover:bg-purple-500 text-white rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 shadow-lg shadow-purple-900/20">
-                            <i data-lucide="sparkles" class="w-4 h-4"></i> Compilar Directivas de la Gema
+                            <i data-lucide="sparkles" class="w-4 h-4"></i> Compilar Parámetros de la Gema
                         </button>
-                        <div id="gema-execution-output" class="bg-slate-900 p-2.5 rounded-lg border border-slate-800 text-[10px] font-mono text-purple-400 min-h-[60px]">
-                            Esperando inicialización de parámetros de forma...
+                        <div id="gema-execution-output" class="bg-slate-900 p-2.5 rounded-lg border border-slate-800 text-[10px] font-code text-purple-400 min-h-[60px]">
+                            Esperando compilación del modelo de forma...
                         </div>
                     </div>
                 `
             },
             'node-aut': {
-                title: "Módulo IV: Banco de Pruebas: Script vs. Agente",
+                title: "Espectro Operativo: Script vs. Agente",
                 category: "EVALUACIÓN DE ROBUSTEZ",
                 badgeStyle: "bg-emerald-500/10 text-emerald-400",
-                description: "Evaluación empírica para contrastar el comportamiento de un Script lineal contra la resiliencia de un Agente cognitivo cuando ocurre una variación del entorno.",
+                description: "Este módulo compara el comportamiento estricto de la programación secuencial frente a la resiliencia del razonamiento de un Agente cognitivo.",
                 bullets: [
-                    "<strong>Caso Script:</strong> Código estricto. Si cambia la fila o estructura del PDF de entrada, el sistema se rompe.",
-                    "<strong>Caso Agente:</strong> Auto-recuperación cognitiva. Gemini detecta el cambio de formato semánticamente y re-establece la tarea de manera adaptativa."
+                    "<strong>Script Lineal:</strong> Lógica rígida de código. Si cambia un milímetro la estructura del PDF o entrada de datos, el script se detiene lanzando un error.",
+                    "<strong>Agente Autónomo:</strong> Resuelve el objetivo analizando dinámicamente el nuevo formato del archivo mediante inferencia de Gemini."
                 ],
                 widget: `
-                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-3">
+                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800/85 space-y-3">
                         <div class="flex justify-between items-center">
-                            <span class="text-[10px] text-emerald-400 font-bold uppercase tracking-wider font-mono">Consola del Compilador Local</span>
-                            <span class="px-1.5 py-0.5 bg-slate-900 text-emerald-400 text-[9px] font-bold rounded border border-slate-800">Python v3.10</span>
+                            <span class="text-[10px] text-emerald-400 font-bold uppercase tracking-wider font-code">Editor de Código Python</span>
+                            <span class="px-1.5 py-0.5 bg-slate-900 text-emerald-400 text-[9px] font-bold rounded border border-slate-800 font-code">Python v3.10</span>
                         </div>
                         
-                        <!-- Caja de edición interactiva del script -->
-                        <div class="relative rounded-lg border border-slate-700 overflow-hidden font-mono text-xs">
-                            <textarea id="script-code-editor" class="w-full bg-slate-900 text-slate-300 p-3 h-24 focus:outline-none focus:ring-1 focus:ring-emerald-500 resize-none leading-relaxed" spellcheck="false"># Script tradicional para lectura de balances
+                        <!-- Caja de edición del script -->
+                        <div class="relative rounded-lg border border-slate-700 overflow-hidden font-code text-xs">
+                            <textarea id="script-code-editor" class="w-full bg-slate-900 text-slate-300 p-3 h-24 focus:outline-none focus:ring-1 focus:ring-emerald-500 resize-none leading-relaxed" spellcheck="false"># Script para lectura de balances
 def extraer_ventas(pdf_texto):
-    # Asume que el balance está en la fila 4 estrictamente
+    # Asume que el balance está estrictamente en la fila 4
     lineas = pdf_texto.split('\\n')
     return lineas[3].split(':')[1]</textarea>
                         </div>
 
-                        <!-- Selector del escenario del entorno -->
+                        <!-- Configuración del escenario externo -->
                         <div class="space-y-1">
-                            <label class="text-[10px] text-slate-400 block font-bold font-mono">Variable de Formato del PDF (Entorno):</label>
-                            <select id="scenario-input" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-xs text-slate-300 focus:outline-none focus:border-emerald-500">
-                                <option value="formato_correcto">PDF Estándar (Balance en Fila 4 - "Ventas: $5000 COP")</option>
-                                <option value="formato_modificado">PDF Re-estructurado (Balance en Fila 6 - "Total Ventas: $5000 COP")</option>
+                            <label class="text-[10px] text-slate-400 block font-bold font-code">Variación del Entorno (PDF Input):</label>
+                            <select id="scenario-input" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-xs text-slate-300 focus:outline-none focus:border-emerald-500 font-code">
+                                <option value="formato_correcto">PDF Tradicional (Fila 4 - "Total: $5000 COP")</option>
+                                <option value="formato_modificado">PDF Re-estructurado (Fila 6 - "Total Ventas: $5000 COP")</option>
                             </select>
                         </div>
 
                         <div class="grid grid-cols-2 gap-2">
-                            <button onclick="runInteractiveScript()" class="py-2 bg-emerald-600 hover:bg-emerald-500 rounded-lg text-xs font-bold text-white transition-all flex items-center justify-center gap-1.5 shadow-lg shadow-emerald-950/30">
+                            <button onclick="runInteractiveScript()" class="py-2 bg-emerald-600 hover:bg-emerald-500 rounded-lg text-xs font-bold text-white transition-all flex items-center justify-center gap-1.5">
                                 <i data-lucide="play" class="w-3.5 h-3.5"></i> Correr Script
                             </button>
                             <button onclick="runInteractiveAgent()" class="py-2 bg-pink-600 hover:bg-pink-500 rounded-lg text-xs font-bold text-white transition-all flex items-center justify-center gap-1.5 shadow-lg shadow-pink-900/20">
@@ -539,163 +412,152 @@ def extraer_ventas(pdf_texto):
                             </button>
                         </div>
 
-                        <div id="interactive-console-output" class="bg-slate-900 p-2.5 rounded-lg border border-slate-800 text-[10px] font-mono text-slate-400 min-h-[90px] max-h-[140px] overflow-y-auto space-y-1">
+                        <div id="interactive-console-output" class="bg-slate-900 p-2.5 rounded-lg border border-slate-800 text-[10px] font-code text-slate-400 min-h-[90px] max-h-[140px] overflow-y-auto space-y-1">
                             Línea de comandos lista para depuración...
                         </div>
                     </div>
                 `
             },
             'node-codex': {
-                title: "Módulo V: Agentes Autónomos de Software",
-                category: "AUTOCORRECCIÓN CIBERNÉTICA",
+                title: "Agentes Autónomos en Codex",
+                category: "AUTOCORRECCIÓN",
                 badgeStyle: "bg-pink-500/10 text-pink-400",
-                description: "Los agentes basados en Codex resuelven la entropía del código analizando trazas de errores de ejecución (Logs), abstrayendo el error técnico y modificando la sintaxis rota de manera autónoma en servidores de producción.",
+                description: "Los agentes autónomos en Codex monitorean los servidores, identifican errores de ejecución lógicos, corrigen la sintaxis del código y re-lanzan el software sin intervención manual.",
                 bullets: [
-                    "<strong>Compilación Auto-correctiva:</strong> El sistema cerrado de retroalimentación de la TGS aplicado a la estabilidad de software."
+                    "<strong>Auto-depuración:</strong> Aplica el ciclo cerrado cibernético de retroalimentación de la TGS de forma automática a la programación."
                 ],
                 widget: `
-                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-3">
-                        <span class="text-[10px] text-pink-400 font-bold uppercase tracking-wider block font-mono">Simulador de Excepción de Código (Log)</span>
+                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800/85 space-y-3">
+                        <span class="text-[10px] text-pink-400 font-bold uppercase tracking-wider block font-code">Simulador de Falla de Servidor</span>
                         
-                        <div class="p-2.5 bg-slate-900 rounded-lg border border-red-500/20 text-[10px] font-mono text-red-400">
-                            <strong>EXCEPCIÓN EN CALIENTE:</strong> ZeroDivisionError: division by zero in metrics.py line 42.
+                        <div class="p-2.5 bg-slate-900 rounded-lg border border-red-500/20 text-[10px] font-code text-red-400">
+                            <strong>EXCEPCIÓN CRÍTICA:</strong> ZeroDivisionError: division by zero in metrics.py line 42.
                         </div>
 
                         <button onclick="triggerAutocorrection()" class="w-full py-2 bg-pink-600 hover:bg-pink-500 text-white font-bold rounded-lg text-xs transition-all flex items-center justify-center gap-1.5 shadow-lg shadow-pink-900/20">
                             <i data-lucide="wrench" class="w-4 h-4"></i> Activar Auto-corrección del Agente
                         </button>
 
-                        <div id="autocorrect-console" class="bg-slate-900 p-2.5 rounded-lg border border-slate-800 text-[10px] font-mono text-slate-400 min-h-[90px] max-h-[140px] overflow-y-auto space-y-1">
-                            Esperando activación del parche en metrics.py...
+                        <div id="autocorrect-console" class="bg-slate-900 p-2.5 rounded-lg border border-slate-800 text-[10px] font-code text-slate-400 min-h-[90px] max-h-[140px] overflow-y-auto space-y-1">
+                            Consola inactiva. Esperando ejecución de auto-parche...
                         </div>
                     </div>
                 `
             },
             'node-tgs': {
-                title: "Teoría General de Sistemas Aplicada",
+                title: "Teoría General de Sistemas",
                 category: "TEORÍA ACADÉMICA",
                 badgeStyle: "bg-amber-500/10 text-amber-400",
-                description: "El modelado de un sistema inteligente demuestra que la IA de Gemini no es un elemento aislado, sino que opera dentro de un supersistema interactuando con variables físicas e infraestructura elástica en la nube.",
+                description: "La Teoría de Sistemas estudia la interconexión armónica entre elementos para lograr una meta. La IA y la automatización se analizan formalmente como un **sistema abierto**.",
                 bullets: [
-                    "<strong>Homeostasis:</strong> Capacidad del sistema para conservar su integridad interna y autorregularse ante anomalías.",
-                    "<strong>Entropía:</strong> El grado de desgaste lógico y desorden operativo al cambiar variables externas."
+                    "<strong>Homeostasis:</strong> Capacidad interna del sistema de regular su estabilidad frente a fallos externos.",
+                    "<strong>Entropía:</strong> El desorden e inestabilidad que afecta al sistema al variar las condiciones del entorno."
                 ],
                 widget: `
-                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 text-center space-y-1.5">
+                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800/85 text-center space-y-2">
                         <i data-lucide="layers" class="w-8 h-8 text-amber-400 mx-auto animate-pulse"></i>
-                        <span class="text-[10px] text-amber-400 font-bold uppercase tracking-wider block font-mono">Teoría Cibernética</span>
-                        <p class="text-[11px] text-slate-400 leading-relaxed">Un sistema inteligente estable equilibra la entropía (excepciones de software) utilizando la homeostasis (corrección automática).</p>
+                        <span class="text-[10px] text-amber-400 font-bold uppercase tracking-wider block font-code">Cibernética Integrada</span>
+                        <p class="text-[11px] text-slate-400 leading-relaxed">El software inteligente alcanza su estabilidad (homeostasis) compensando los errores (entropía) mediante una retroalimentación continua.</p>
                     </div>
                 `
             },
             'node-tgs-sim': {
-                title: "Módulo VI: Diagnóstico Cibernético TGS",
+                title: "Laboratorio Cibernético de TGS",
                 category: "MARCO EXPERIMENTAL",
                 badgeStyle: "bg-amber-500/10 text-amber-400",
-                description: "Pruebas experimentales de estabilidad del sistema cibernético. Modifica de forma interactiva las variables de **Entropía** (fricción de red) y **Retroalimentación** (Feedback) para comprobar si el sistema es capaz de mantener el equilibrio (Homeostasis).",
+                description: "Simula de forma interactiva las fluctuaciones sistémicas entre la entropía y la retroalimentación para ver si el sistema abierto colapsa o se estabiliza.",
                 bullets: [
-                    "<strong>Simulación del Ciclo Cerrado:</strong> Demuestra cómo el flujo de datos compensa los fallos de red si el canal de feedback es robusto."
+                    "<strong>Equilibrio del Sistema:</strong> Comprueba el teorema de homeostasis cibernética modificando las variables lógicas en tiempo real."
                 ],
                 widget: `
-                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-3">
-                        <span class="text-[10px] text-amber-400 font-bold uppercase tracking-wider block font-mono">Configuración de Variables de TGS</span>
+                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800/85 space-y-3">
+                        <span class="text-[10px] text-amber-400 font-bold uppercase tracking-wider block font-code">Ajuste de Variables Sistémicas</span>
                         
                         <div class="space-y-2 text-[11px]">
-                            <!-- Variable de Entropía -->
+                            <!-- Slider de Entropía -->
                             <div class="space-y-1">
-                                <div class="flex justify-between">
-                                    <span class="text-slate-400">Ruido/Entropía del Entorno:</span>
-                                    <span id="label-val-entropy" class="text-red-400 font-bold">Bajo (10%)</span>
+                                <div class="flex justify-between font-code">
+                                    <span class="text-slate-400">Entropía del Entorno:</span>
+                                    <span id="label-val-entropy" class="text-red-400 font-bold">Baja (10%)</span>
                                 </div>
                                 <input type="range" id="slider-entropy" min="10" max="90" value="10" oninput="updateSystemVariables()" class="w-full accent-amber-500">
                             </div>
 
-                            <!-- Variable de Retroalimentación -->
+                            <!-- Slider de Feedback -->
                             <div class="space-y-1">
-                                <div class="flex justify-between">
-                                    <span class="text-slate-400">Feedback (Retroalimentación):</span>
+                                <div class="flex justify-between font-code">
+                                    <span class="text-slate-400">Fuerza de Retroalimentación:</span>
                                     <span id="label-val-feedback" class="text-emerald-400 font-bold">Estable (100%)</span>
                                 </div>
                                 <input type="range" id="slider-feedback" min="10" max="100" value="100" oninput="updateSystemVariables()" class="w-full accent-amber-500">
                             </div>
                         </div>
 
-                        <button onclick="runTgsCyberneticSimulation()" class="w-full py-2 bg-amber-600 hover:bg-amber-500 text-white rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 shadow-lg shadow-amber-900/20">
-                            <i data-lucide="activity" class="w-4 h-4"></i> Iniciar Análisis de Estabilidad
+                        <button onclick="runTgsCyberneticSimulation()" class="w-full py-2 bg-amber-600 hover:bg-amber-500 text-white rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 shadow-lg shadow-amber-900/20 font-code">
+                            <i data-lucide="activity" class="w-4 h-4"></i> Correr Análisis de Estabilidad
                         </button>
 
-                        <div id="tgs-cybernetic-output" class="bg-slate-900 p-2.5 rounded-lg border border-slate-800 text-[10px] font-mono text-amber-400 min-h-[90px] max-h-[140px] overflow-y-auto">
-                            Alinea las variables sistémicas y pulsa 'Iniciar Análisis de Estabilidad'...
+                        <div id="tgs-cybernetic-output" class="bg-slate-900 p-2.5 rounded-lg border border-slate-800 text-[10px] font-code text-amber-400 min-h-[90px] max-h-[140px] overflow-y-auto">
+                            Modifica los controles y corre la prueba de homeostasis para evaluar la resistencia...
                         </div>
                     </div>
                 `
             },
             'node-opencloud': {
-                title: "Módulo VII: Modelo de Infraestructura Cloud",
-                category: "SOPORTE FÍSICO ELÁSTICO",
+                title: "Infraestructura Cloud & Opencloud",
+                category: "SOPORTE FÍSICO",
                 badgeStyle: "bg-blue-500/10 text-blue-400",
-                description: "La infraestructura elástica descentralizada proporciona la potencia de cómputo para procesar video de gran tamaño en tiempo real y ejecutar microservicios sin fricciones lógicas.",
+                description: "La computación en la nube proporciona la escalabilidad física para alojar modelos de inteligencia artificial y orquestar flujos de video masivos.",
                 bullets: [
-                    "<strong>Modelo de Procesamiento de Video:</strong> Streaming y visión de IA unificados en la nube de forma directa y automática.",
-                    "<strong>Opencloud:</strong> Despliegue independiente de marcas mediante el uso de nubes híbridas y APIs de interoperabilidad."
+                    "<strong>Modelo de Procesamiento de Video:</strong> Streaming y visión de IA integrados para monitorear transmisiones masivas.",
+                    "<strong>Opencloud:</strong> Filosofía de interconexión basada en estándares abiertos que permite comunicar nubes híbridas sin trabas de proveedores corporativos."
                 ],
                 widget: `
-                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-3">
-                        <span class="text-[10px] text-blue-400 font-bold uppercase tracking-wider block font-mono">Consola de Análisis de Video Cloud (Visión IA)</span>
+                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800/85 space-y-3">
+                        <span class="text-[10px] text-blue-400 font-bold uppercase tracking-wider block font-code">Procesamiento de Video (Visión IA)</span>
                         
-                        <div class="bg-slate-900 rounded-lg p-3 text-center border border-slate-800">
+                        <div class="bg-slate-900 rounded-lg p-2 text-center border border-slate-800">
                             <div class="w-full h-24 bg-slate-950 rounded-lg flex items-center justify-center border border-slate-800 relative overflow-hidden">
                                 <i data-lucide="video" id="video-sim-icon" class="w-8 h-8 text-sky-400"></i>
-                                <span class="absolute top-2 right-2 text-[9px] bg-red-600 text-white px-1.5 py-0.5 rounded font-extrabold animate-pulse">STREAMING LIVE</span>
+                                <span class="absolute top-2 right-2 text-[9px] bg-red-600 text-white px-1.5 py-0.5 rounded font-extrabold animate-pulse font-code">STREAM LIVE</span>
                                 <div id="video-feed-overlay" class="absolute inset-0 bg-emerald-500/10 hidden flex items-center justify-center">
-                                    <span class="bg-emerald-950/90 text-emerald-400 text-[9px] font-mono px-2 py-1 rounded border border-emerald-500/30">Gemini: Vehículo Detectado</span>
+                                    <span class="bg-emerald-950/90 text-emerald-400 text-[9px] font-code px-2 py-1 rounded border border-emerald-500/30">Gemini: Elemento Detectado</span>
                                 </div>
                             </div>
                         </div>
 
-                        <button onclick="startCloudVideoAnalysis()" class="w-full py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 shadow-lg shadow-blue-900/20">
-                            <i data-lucide="eye" class="w-4 h-4"></i> Procesar Video en Cloud con Gemini
+                        <button onclick="startCloudVideoAnalysis()" class="w-full py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 shadow-lg shadow-blue-900/20 font-code">
+                            <i data-lucide="eye" class="w-4 h-4"></i> Analizar Video con Gemini
                         </button>
 
-                        <div id="cloud-video-console" class="bg-slate-900 p-2.5 rounded-lg border border-slate-800 text-[10px] font-mono text-blue-400 min-h-[60px]">
-                            Esperando ingesta de flujo de video para iniciar segmentación cognitiva...
+                        <div id="cloud-video-console" class="bg-slate-900 p-2.5 rounded-lg border border-slate-800 text-[10px] font-code text-blue-400 min-h-[60px]">
+                            Esperando inicio de análisis de video de la nube...
                         </div>
                     </div>
                 `
             }
         };
 
-        // Lógica de Pestañas de la Entrega (Memoria Escrita vs Mapa)
-        const btnMemoria = document.getElementById('tab-btn-memoria');
-        const btnMapa = document.getElementById('tab-btn-mapa');
-        const viewMemoria = document.getElementById('view-memoria');
-        const viewMap = document.getElementById('view-map');
+        // Conexiones para trazar las líneas del mapa mental
+        const connections = [
+            ['node-root', 'node-iagen'],
+            ['node-iagen', 'node-gemini'],
+            ['node-gemini', 'node-gemas'],
+            ['node-root', 'node-tgs'],
+            ['node-tgs', 'node-tgs-sim'],
+            ['node-root', 'node-aut'],
+            ['node-aut', 'node-codex'],
+            ['node-aut', 'node-opencloud']
+        ];
 
-        btnMemoria.addEventListener('click', () => {
-            btnMemoria.className = "flex-1 sm:flex-initial px-4 py-2 rounded-lg text-xs font-bold bg-sky-600 text-white flex items-center justify-center gap-2 transition-all";
-            btnMapa.className = "flex-1 sm:flex-initial px-4 py-2 rounded-lg text-xs font-bold text-slate-400 hover:text-white flex items-center justify-center gap-2 transition-all";
-            viewMemoria.classList.remove('hidden');
-            viewMap.classList.add('hidden');
-        });
-
-        btnMapa.addEventListener('click', () => {
-            btnMapa.className = "flex-1 sm:flex-initial px-4 py-2 rounded-lg text-xs font-bold bg-sky-600 text-white flex items-center justify-center gap-2 transition-all";
-            btnMemoria.className = "flex-1 sm:flex-initial px-4 py-2 rounded-lg text-xs font-bold text-slate-400 hover:text-white flex items-center justify-center gap-2 transition-all";
-            viewMap.classList.remove('hidden');
-            viewMemoria.classList.add('hidden');
-            
-            // Forzar dibujo estable de conexiones
-            setTimeout(drawConnections, 120);
-        });
-
-        // Dibujo dinámico de Líneas de Conexión del Mapa Mental
+        // Trazar las conexiones de forma dinámica y ultrasólida
         function drawConnections() {
             const svg = document.getElementById('connection-svg');
-            const container = document.getElementById('content-view-viewport');
+            const container = document.getElementById('main-canvas-container');
             
-            if (!svg || !container || viewMap.classList.contains('hidden')) return;
+            if (!svg || !container) return;
 
-            // Limpieza de líneas anteriores
+            // Limpieza preventiva
             const paths = svg.querySelectorAll('path');
             paths.forEach(p => p.remove());
 
@@ -710,6 +572,7 @@ def extraer_ventas(pdf_texto):
                 const originRect = originEl.getBoundingClientRect();
                 const destRect = destEl.getBoundingClientRect();
 
+                // Centros absolutos relativos al contenedor
                 const startX = (originRect.left + originRect.right) / 2 - containerRect.left + container.scrollLeft;
                 const startY = (originRect.top + originRect.bottom) / 2 - containerRect.top + container.scrollTop;
                 const endX = (destRect.left + destRect.right) / 2 - containerRect.left + container.scrollLeft;
@@ -721,16 +584,16 @@ def extraer_ventas(pdf_texto):
                 const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
                 path.setAttribute("d", dPath);
                 path.setAttribute("fill", "none");
-                path.setAttribute("stroke", "url(#formal-grad)");
-                path.setAttribute("stroke-width", "2.5");
+                path.setAttribute("stroke", "url(#line-grad)");
+                path.setAttribute("stroke-width", "2");
                 path.setAttribute("class", "connection-line");
-                path.setAttribute("filter", "url(#formal-glow)");
+                path.setAttribute("filter", "url(#glow)");
                 
                 svg.appendChild(path);
             });
         }
 
-        // Selección de nodo e inyección dinámica de Laboratorios
+        // Selección de nodo e inyección dinámica de Simuladores
         function selectNode(nodeId) {
             document.querySelectorAll('.node').forEach(n => n.classList.remove('active-node'));
             
@@ -744,14 +607,15 @@ def extraer_ventas(pdf_texto):
 
             const panelCategory = document.getElementById('panel-category');
             const panelContent = document.getElementById('panel-content');
+            const eventText = document.getElementById('system-event-text');
 
-            panelCategory.className = `px-2.5 py-0.5 text-[9px] font-bold rounded-full uppercase tracking-wider ${data.badgeStyle}`;
+            panelCategory.className = `px-2.5 py-0.5 text-[9px] font-bold rounded-full uppercase tracking-wider font-code ${data.badgeStyle}`;
             panelCategory.innerText = data.category;
 
             let bulletsHtml = "";
             data.bullets.forEach(b => {
-                bulletsHtml += `<li class="flex items-start gap-1.5 text-slate-300">
-                    <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5"></i>
+                bulletsHtml += `<li class="flex items-start gap-1.5 text-slate-350">
+                    <i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400 shrink-0 mt-0.5"></i>
                     <span>${b}</span>
                 </li>`;
             });
@@ -774,61 +638,59 @@ def extraer_ventas(pdf_texto):
                     </div>
                 </div>
             `;
-            
+
+            eventText.innerText = `CONSOLA: Simulador de [${data.title}] cargado y listo para depuración lógica.`;
             lucide.createIcons();
         }
 
-        // --- SISTEMAS DE SIMULACIÓN RIGUROSOS ---
+        // --- SISTEMAS DE SIMULACIÓN INTERACTIVOS ---
 
-        // 1. Simulación de Inferencia Cognitiva
+        // 1. Simulación de Inferencia Cognitiva (IA Generativa)
         function runInferenceSimulation() {
             const prompt = document.getElementById('ia-prompt-input').value;
             const output = document.getElementById('ia-inference-output');
             if (!output) return;
 
-            output.innerHTML = `<span class="text-sky-400">[INFERENCIA]</span> Tokenizando entrada lógica: "${prompt}"...<br>`;
+            output.innerHTML = `<span class="text-cyan-400">[INFERENCIA]</span> Tokenizando entrada: "${prompt}"...<br>`;
             
             setTimeout(() => {
-                output.innerHTML += `<span class="text-indigo-400">[ANALIZADOR SEMÁNTICO]</span> Procesando dependencias lógicas mediante Gemini...<br>`;
+                output.innerHTML += `<span class="text-indigo-400">[ANALIZADOR]</span> Evaluando dependencias semánticas en el espacio de tokens...<br>`;
                 output.scrollTop = output.scrollHeight;
             }, 800);
 
             setTimeout(() => {
-                output.innerHTML += `<span class="text-emerald-400 font-bold">[CÓDIGO GENERADO AUTOMÁTICAMENTE]</span><br>
-                <span class="text-sky-300">def backup_clouddb():<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;if get_db_saturation() > 0.85:<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cloud_storage.replicate(target='Opencloud_Node_B')</span>`;
+                output.innerHTML += `<span class="text-emerald-400 font-bold">[GENERACIÓN]</span> Gemini respondiendo: "Para extraer la ganancia neta de forma adaptativa, ejecuté un agente cognitivo que examina los balances contables en el servidor local sin requerir scripts rígidos de posiciones de fila."`;
                 output.scrollTop = output.scrollHeight;
             }, 1800);
         }
 
-        // 2. Simulación Multimodal
+        // 2. Simulación Multimodal Directa (Gemini)
         function simulateMultimodalInput(type) {
             const output = document.getElementById('multimodal-status');
             if (!output) return;
 
             if (type === 'image') {
                 output.innerHTML = `
-                    <span class="text-indigo-400">[MULTIMODAL_IMAGE]</span> Ingestando "balance_fiscal.png" (512x512)...<br>
-                    <span class="text-slate-500">→</span> Gemini analizando patrones de cuadrantes de píxeles...<br>
-                    <span class="text-emerald-400 font-bold">[REPORTE] "Se detecta tabla financiera. Total de activos reportados: $10,500 USD."</span>
+                    <span class="text-indigo-400 font-code">[MULTIMODAL_IMAGE]</span> Cargando "factura_escaneada.png" (512x512)...<br>
+                    <span class="text-slate-500">→</span> Gemini analizando patrones de píxeles directamente...<br>
+                    <span class="text-emerald-400 font-bold">[ÉXITO] Datos: "Factura No. 120, Proveedor: OpenCloud Inc., Total: $450 USD."</span>
                 `;
             } else if (type === 'video') {
                 output.innerHTML = `
-                    <span class="text-indigo-400">[MULTIMODAL_VIDEO]</span> Ingestando flujo "streaming_servidor.mp4" (24fps)...<br>
-                    <span class="text-slate-500">→</span> Analizando fotogramas clave y flujos de red simultáneamente...<br>
-                    <span class="text-emerald-400 font-bold">[REPORTE] "Se detecta desbordamiento de búfer en el cuadro 120. Origen: IP 192.168.1.5"</span>
+                    <span class="text-indigo-400 font-code">[MULTIMODAL_VIDEO]</span> Cargando transmisión de cámara "stream_cloud.mp4" (24fps)...<br>
+                    <span class="text-slate-500">→</span> Gemini analizando la secuencia de cuadros temporales...<br>
+                    <span class="text-emerald-400 font-bold">[ÉXITO] Visión: "Se detecta vehículo ingresando al servidor de red a las 15:15 hs. Sin anomalías."</span>
                 `;
             } else if (type === 'audio') {
                 output.innerHTML = `
-                    <span class="text-indigo-400">[MULTIMODAL_AUDIO]</span> Procesando espectrograma "instruccion_voz.wav" (16kHz)...<br>
-                    <span class="text-slate-500">→</span> Mapeando fonemas de manera directa al espacio latente...<br>
-                    <span class="text-emerald-400 font-bold">[REPORTE] "Instrucción decodificada: Lanzar script de redundancia de forma inmediata."</span>
+                    <span class="text-indigo-400 font-code">[MULTIMODAL_AUDIO]</span> Escuchando "instruccion_voz.wav" (16kHz)...<br>
+                    <span class="text-slate-500">→</span> Interpretando tonos fonéticos directamente en el espacio latente...<br>
+                    <span class="text-emerald-400 font-bold">[ÉXITO] Voz: "Despliega de inmediato un script de firewall en el nodo central."</span>
                 `;
             }
         }
 
-        // 3. Simulación de Gema (Modelos de Forma)
+        // 3. Compilación de Gemas (Modelos de Forma)
         function instantiateGema() {
             const role = document.getElementById('gema-role-select').value;
             const tone = document.getElementById('gema-tone-select').value;
@@ -836,21 +698,21 @@ def extraer_ventas(pdf_texto):
 
             if (!output) return;
 
-            output.innerHTML = `<span class="text-purple-400">[MOLDE]</span> Ajustando restricciones operativas para el rol [${role.toUpperCase()}]...<br>`;
+            output.innerHTML = `<span class="text-purple-400">[MOLDE]</span> Compilando directivas del rol [${role.toUpperCase()}]...<br>`;
 
             setTimeout(() => {
-                output.innerHTML += `<span class="text-purple-400">[FORMA]</span> Limitando tono del sistema de salida a: [${tone.toUpperCase()}]...<br>`;
+                output.innerHTML += `<span class="text-purple-400">[TIPO]</span> Aplicando restricción de tono técnico: [${tone.toUpperCase()}]...<br>`;
                 output.scrollTop = output.scrollHeight;
             }, 600);
 
             setTimeout(() => {
                 let response = "";
                 if (role === 'auditor') {
-                    response = "[CONSOLA AUDIT]: ALERTA: Script vulnerable detectado en directorio raíz. Posibilidad de inyección SQL. Recomiendo re-estructurar con consultas preparadas.";
+                    response = "CONSOLA AUDIT: ADVERTENCIA: Se detectó puerto 8080 abierto en la infraestructura de la nube. Modifica el script de firewall de inmediato.";
                 } else if (role === 'tgs') {
-                    response = "[CONSOLA TGS]: El sistema abierto se mantiene en homeostasis. Si sube la entropía en la nube, el agente adaptativo corrige el software de manera autoregulada.";
+                    response = "CONSOLA TGS: Hola. Un sistema abierto requiere homeostasis, es decir, un canal de retroalimentación para evitar la entropía del software.";
                 } else {
-                    response = "[CONSOLA LOGS]: Despliegue elástico completado. Redundancia activa en el nodo Opencloud central.";
+                    response = "CONSOLA LOGS: Scraper de nube inicializado. Puerto de escucha local: 4000. Protocolo de red: TCP.";
                 }
                 output.innerHTML += `<span class="text-emerald-400 font-bold">[GEMA GENERADA]</span> "${response}"`;
                 output.scrollTop = output.scrollHeight;
@@ -869,10 +731,10 @@ def extraer_ventas(pdf_texto):
             
             setTimeout(() => {
                 if (scenario === 'formato_correcto') {
-                    output.innerHTML += `<span class="text-slate-400">[PROCESO]</span> Analizando PDF estándar...<br>`;
+                    output.innerHTML += `<span class="text-slate-400">[ENV]</span> Cargando PDF de Entrada (Estructura Tradicional)...<br>`;
                     output.innerHTML += `<span class="text-emerald-400 font-bold">[ÉXITO] Ejecución limpia. Dato extraído: $5000 COP</span>`;
                 } else {
-                    output.innerHTML += `<span class="text-slate-400">[PROCESO]</span> Analizando PDF con cambios de diseño...<br>`;
+                    output.innerHTML += `<span class="text-slate-400">[ENV]</span> Cargando PDF de Entrada (Estructura Modificada)...<br>`;
                     output.innerHTML += `<span class="text-red-500 font-bold">[COLAPSO] IndexError: list index out of range.<br>El script estricto falló catastróficamente al no hallar la palabra clave en la línea 4. El sistema se detuvo.</span>`;
                 }
                 output.scrollTop = output.scrollHeight;
@@ -888,7 +750,7 @@ def extraer_ventas(pdf_texto):
             output.innerHTML = `<span class="text-pink-400">[AGENTE]</span> Inicializando meta de búsqueda semántica mediante Gemini...<br>`;
             
             setTimeout(() => {
-                output.innerHTML += `<span class="text-pink-400">[PENSAMIENTO]</span> "Se detectó desalineación en el índice esperado. Procedo a analizar la semántica de todas las líneas de forma integral..."<br>`;
+                output.innerHTML += `<span class="text-pink-400">[PENSAMIENTO]</span> "Se detectó desalineación en el índice de fila esperado. Procedo a analizar la semántica global de las líneas..."<br>`;
                 output.scrollTop = output.scrollHeight;
             }, 700);
 
@@ -907,33 +769,33 @@ def extraer_ventas(pdf_texto):
             }, 2200);
         }
 
-        // 5. Agente Autónomo de Software (Autocorrección)
+        // 5. Agente de Código Codex (Autocorrección)
         function triggerAutocorrection() {
             const output = document.getElementById('autocorrect-console');
             if (!output) return;
 
-            output.innerHTML = `<span class="text-pink-400">[ANALIZADOR_LOGS]</span> Abstrayendo excepción "ZeroDivisionError" del archivo metrics.py...<br>`;
+            output.innerHTML = `<span class="text-pink-400">[ANALIZADOR_LOGS]</span> Leyendo traza de error "ZeroDivisionError" de metrics.py...<br>`;
 
             setTimeout(() => {
-                output.innerHTML += `<span class="text-indigo-400">[PROCESO]</span> Generando e inyectando parche lógico en tiempo de ejecución...<br>`;
+                output.innerHTML += `<span class="text-indigo-400">[PROCESO]</span> Corrigiendo y subiendo parche lógico de metrics.py...<br>`;
                 output.scrollTop = output.scrollHeight;
             }, 800);
 
             setTimeout(() => {
                 output.innerHTML += `<span class="text-slate-400">[PARCHE APLICADO]</span><br>
-                <span class="text-sky-300 font-mono">def calcular_tasa(ventas, clientes):<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;if clientes == 0: return 0  # Previene caída del software<br>
+                <span class="text-sky-300 font-code text-[9px]">def calcular_tasa(ventas, clientes):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;if clientes == 0: return 0  # Evita división por cero<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;return ventas / clientes</span><br>`;
                 output.scrollTop = output.scrollHeight;
             }, 1600);
 
             setTimeout(() => {
-                output.innerHTML += `<span class="text-emerald-400 font-bold">[SISTEMA RESTABLECIDO]</span> El agente aplicó el parche. Proceso en el servidor Opencloud activo y estable.`;
+                output.innerHTML += `<span class="text-emerald-400 font-bold">[SISTEMA RESTABLECIDO]</span> Proceso en el servidor Opencloud activo y estable de manera autónoma.`;
                 output.scrollTop = output.scrollHeight;
             }, 2400);
         }
 
-        // 6. Variables TGS y Estabilidad
+        // 6. Configuración de Sliders Cibernéticos (TGS)
         function updateSystemVariables() {
             const entropy = document.getElementById('slider-entropy').value;
             const feedback = document.getElementById('slider-feedback').value;
@@ -971,27 +833,27 @@ def extraer_ventas(pdf_texto):
 
             if (!output) return;
 
-            output.innerHTML = `<span class="text-amber-500">[ANÁLISIS]</span> Evaluando homeostasis del sistema cerrado...<br>`;
+            output.innerHTML = `<span class="text-amber-500">[ANÁLISIS]</span> Evaluando la homeostasis cibernética del sistema...<br>`;
 
             setTimeout(() => {
-                output.innerHTML += `<span class="text-slate-400">[CÁLCULO]</span> Procesando tasa de entropía contra respuesta adaptativa del software...<br>`;
+                output.innerHTML += `<span class="text-slate-400">[PROCESO]</span> Contrastando tasa de entropía contra canal de feedback...<br>`;
                 output.scrollTop = output.scrollHeight;
             }, 800);
 
             setTimeout(() => {
                 const stabilityIndex = feedback - entropy;
                 if (stabilityIndex > 35) {
-                    output.innerHTML += `<span class="text-emerald-400 font-bold">[HOMEOSTASIS COMPLETA] El sistema abierto logra neutralizar la entropía (${entropy}%) debido a un canal fuerte de retroalimentación (${feedback}%). Estado: Altamente Estable.</span>`;
+                    output.innerHTML += `<span class="text-emerald-400 font-bold">[HOMEOSTASIS COMPLETA] El sistema abierto logra neutralizar la entropía (${entropy}%) debido a un canal fuerte de retroalimentación (${feedback}%). Estado del Sistema: Estable.</span>`;
                 } else if (stabilityIndex > 0) {
-                    output.innerHTML += `<span class="text-amber-500 font-bold">[ESTADO CRÍTICO] El sistema experimenta micro-caídas y latencia. El feedback es apenas suficiente para compensar las excepciones lógicas de red.</span>`;
+                    output.innerHTML += `<span class="text-amber-500 font-bold">[ESTADO CRÍTICO] El sistema experimenta retrasos en la toma de decisiones por fluctuaciones en los scripts. Retroalimentación inestable.</span>`;
                 } else {
-                    output.innerHTML += `<span class="text-red-500 font-bold">[COLAPSO SISTÉMICO] La entropía del entorno colapsó el sistema abierto. Sin retroalimentación activa, la IA de Gemini no puede enterarse de las fallas de los scripts y el servidor de la nube colapsa.</span>`;
+                    output.innerHTML += `<span class="text-red-500 font-bold">[COLAPSO SISTÉMICO] La entropía superó al canal de feedback. El agente de IA no logra reportar excepciones lógicas de red, colapsando el servidor en la nube.</span>`;
                 }
                 output.scrollTop = output.scrollHeight;
             }, 1800);
         }
 
-        // 7. Video en la Nube con Gemini
+        // 7. Video en Cloud
         function startCloudVideoAnalysis() {
             const icon = document.getElementById('video-sim-icon');
             const overlay = document.getElementById('video-feed-overlay');
@@ -999,17 +861,17 @@ def extraer_ventas(pdf_texto):
 
             if (!icon || !overlay || !consoleLog) return;
 
-            consoleLog.innerHTML = `<span class="text-blue-400">[RED]</span> Enrutando streaming de video al clúster de Opencloud...<br>`;
+            consoleLog.innerHTML = `<span class="text-blue-400">[CONEXIÓN]</span> Enrutando streaming de video al clúster de Opencloud...<br>`;
             icon.className = "w-8 h-8 text-sky-400 animate-pulse";
 
             setTimeout(() => {
-                consoleLog.innerHTML += `<span class="text-indigo-400">[VISIÓN_IA]</span> Gemini procesando fotogramas y detectando elementos móviles...<br>`;
+                consoleLog.innerHTML += `<span class="text-indigo-400">[COGNICIÓN]</span> Gemini procesando fotogramas de video en un solo paso...<br>`;
                 consoleLog.scrollTop = consoleLog.scrollHeight;
             }, 800);
 
             setTimeout(() => {
                 overlay.classList.remove('hidden');
-                consoleLog.innerHTML += `<span class="text-emerald-400 font-bold">[ÉXITO] Detección Completada: Se identifica vehículo de auditoría en sector B. Alerta generada en el reporte.</span>`;
+                consoleLog.innerHTML += `<span class="text-emerald-400 font-bold">[ÉXITO] Detección: Se identifica ingreso de personal al rack de servidores a las 15:15. Alerta enviada al sistema central.</span>`;
                 consoleLog.scrollTop = consoleLog.scrollHeight;
             }, 1800);
         }
@@ -1028,11 +890,11 @@ def extraer_ventas(pdf_texto):
             }
         }
 
-        // Carga inicial y configuraciones de redimensionamiento
+        // Carga inicial y configuraciones
         window.onload = function() {
             lucide.createIcons();
             
-            // Forzar dibujo estable de conexiones SVG
+            // Forzar dibujo de conexiones de forma ultrasólida
             setTimeout(drawConnections, 350);
 
             // Cargar panel raíz por defecto
@@ -1041,26 +903,12 @@ def extraer_ventas(pdf_texto):
 
         // Redibujar conexiones dinámicas ante cambios de tamaño de pantalla
         window.addEventListener('resize', drawConnections);
-
-        // Constelación de conexiones para el mapa mental
-        const connections = [
-            ['node-root', 'node-iagen'],
-            ['node-iagen', 'node-gemini'],
-            ['node-gemini', 'node-gemas'],
-            ['node-root', 'node-tgs'],
-            ['node-tgs', 'node-tgs-sim'],
-            ['node-root', 'node-aut'],
-            ['node-aut', 'node-codex'],
-            ['node-aut', 'node-opencloud']
-        ];
     </script>
 </body>
 </html>
 
 
-### ¿Por qué esta entrega formal impresionará a tu profesor?
-
-1. **Diseño de Reporte Profesional:** En lugar de parecer una serie de diapositivas interactivas para explicar en clase, se abre por defecto en una **Memoria Técnica Escrita**. Es un reporte académico completo y formal, listo para que el docente lea los argumentos directamente en su navegador.
-2. **Banco de Pruebas y Simuladores Académicos:** En la barra lateral derecha, el profesor encontrará los simuladores interactivos, pero ahora están presentados como un **"Banco de Pruebas de Software"**. Puede modificar los inputs para comprobar la solidez del sistema ante cambios de datos y verificar que tus afirmaciones lógicas son reales.
-3. **Estructura bajo la TGS:** El análisis teórico formal de la **Teoría General de Sistemas** se conecta de forma directa con la infraestructura en la nube (**Opencloud**) y la adaptabilidad de los agentes cognitivos.
-4. **Interactividad Optimizada:** En la pestaña **2. Mapa de Arquitectura**, se despliega el mapa conceptual interactivo con líneas de flujo fluidas y dinámicas que no fallarán ni se desalinearán sin importar el tamaño de la pantalla donde lo evalúe el profesor.
+### ¿Por qué esta entrega es perfecta para tu docente?
+* **Encabezado Académico Impecable:** El encabezado del proyecto tiene tu nombre (Juan Ocampo), la materia (Teoría General de Sistemas) y el estado del proyecto bien documentado con un diseño increíblemente formal pero tecnológico.
+* **Conserva las Simulaciones Cyberpunk:** No perdiste la consola, ni los simuladores, ni la terminal activa que te gustó. De hecho, ahora los resultados de los simuladores se enfocan con un lenguaje mucho más académico y científico.
+* **El docente puede experimentar:** Si tu profesor abre la entrega, se sentirá interactuando con un panel real donde puede probar la tolerancia a fallos del software, cambiar el prompt de inferencia o mover las barras de homeostasis en vivo.
